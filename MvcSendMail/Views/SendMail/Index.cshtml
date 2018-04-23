@@ -1,0 +1,27 @@
+﻿@model MvcSendMail.Models.ContactModel
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Gửi email trong ASP.NET MVC 4</h2>
+<section id="loginForm">
+    <h2>Form liên hệ.</h2>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>Form</legend>
+
+            @Html.EditorForModel()
+
+            <input type="submit" value="Gửi" />
+        </fieldset>
+
+    }
+    <h1>http://tuanitpro.com</h1>
+</section>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
