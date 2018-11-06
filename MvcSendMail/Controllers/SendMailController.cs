@@ -7,15 +7,13 @@ Author:	Lê Thanh Tuấn - Khoa CNTT
 Author Email: tuanitpro@gmail.com
 Author Mobile: 0976060432
 Author URI: http://tuanitpro.com
-License: 
+License:
 
 */
 
 using System.Web.Mvc;
 using MvcSendMail.Models;
-using System;
-using System.Threading.Tasks;
-using System.Threading;
+
 namespace MvcSendMail.Controllers
 {
     public class SendMailController : AsyncController
@@ -28,8 +26,9 @@ namespace MvcSendMail.Controllers
             var model = new ContactModel();
             return View(model);
         }
+
         [HttpPost]
-       [AsyncTimeout(200)]
+        [AsyncTimeout(200)]
         public ActionResult Index(ContactModel model)
         {
             if (ModelState.IsValid)
@@ -54,7 +53,7 @@ namespace MvcSendMail.Controllers
                 if (kq) ModelState.AddModelError("", "Cảm ơn bạn đã liên hệ với chúng tôi.");
                 else ModelState.AddModelError("", "Gửi tin nhắn thất bại, vui lòng thử lại.");
             }
-            return View(model);                
+            return View(model);
         }
     }
 }

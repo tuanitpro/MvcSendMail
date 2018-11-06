@@ -7,7 +7,7 @@ Author:	Lê Thanh Tuấn - Khoa CNTT
 Author Email: tuanitpro@gmail.com
 Author Mobile: 0976060432
 Author URI: http://tuanitpro.com
-License: 
+License:
 
 */
 
@@ -15,7 +15,6 @@ using System;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace MvcSendMail.Models
 {
@@ -43,7 +42,7 @@ namespace MvcSendMail.Models
             {
                 using (var smtpClient = new SmtpClient())
                 {
-                    smtpClient.EnableSsl = true; //https, 
+                    smtpClient.EnableSsl = true; //https,
                     smtpClient.Host = smtpHost; // host
                     smtpClient.Port = smtpPort; // port
                     smtpClient.UseDefaultCredentials = true;
@@ -60,8 +59,8 @@ namespace MvcSendMail.Models
 
                     msg.To.Add(toEmail);
                     Object state = msg;
-                      smtpClient.SendCompleted+=smtpClient_SendCompleted;
-                      smtpClient.SendAsync(msg, state);
+                    smtpClient.SendCompleted += smtpClient_SendCompleted;
+                    smtpClient.SendAsync(msg, state);
 
                     return mailSent;
                 }
@@ -71,8 +70,10 @@ namespace MvcSendMail.Models
                 return false;
             }
         }
-          bool mailSent = false;
-        void smtpClient_SendCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
+
+        private bool mailSent = false;
+
+        private void smtpClient_SendCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
         {
             MailMessage token = e.UserState as MailMessage;
             if (e.Cancelled)
@@ -92,6 +93,5 @@ namespace MvcSendMail.Models
             }
             mailSent = true;
         }
-       
     }
 }
