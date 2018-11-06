@@ -36,7 +36,7 @@ namespace MvcSendMail.Controllers
                 // Gửi mail
 
                 string smtpUserName = "tuanitpro@gmail.com";
-                string smtpPassword = "zgoerigfjndorwiv";
+                string smtpPassword = "zylfkazcsaabtvkt";
                 string smtpHost = "smtp.gmail.com";
                 int smtpPort = 25;
 

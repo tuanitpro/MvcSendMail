@@ -1,0 +1,24 @@
+﻿@model SendMailCore.Models.ContactModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Gửi email trong MVC Net Core</h2>
+<section id="loginForm">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <fieldset>
+            <legend>Form</legend>
+
+            @Html.EditorForModel()
+
+            <input type="submit" value="Gửi" />
+        </fieldset>
+
+    }
+    <h1>http://tuanitpro.com</h1>
+</section>
